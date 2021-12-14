@@ -1,0 +1,224 @@
+quad_robot:
+
+  #default controller
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+
+  #rr_Controllers --------------------------------------------------------------
+  
+  rr_h_controller:
+    type: effort_controllers/JointPositionController
+    joint: rr_h
+    pid : {p: 10, i: 1.0, d: 4}
+
+  rr_l_1_controller:
+    type: effort_controllers/JointPositionController
+    joint: rr_l_1
+    pid : {p: 10, i: 1.0, d: 4}
+
+  rr_lg_controller:
+    type: effort_controllers/JointPositionController
+    joint: rr_lg
+    pid : {p: 10, i: 1.0, d: 4}
+  
+  rr_l_2_controller:
+    type: effort_controllers/JointPositionController
+    joint: rr_l_2
+    pid : {p: 10, i: 1.0, d: 4}
+  
+  rr_a_controller:
+    type: effort_controllers/JointPositionController
+    joint: rr_a
+    pid : {p: 10, i: 1.0, d: 4}
+
+  rr_f_controller:
+    type: effort_controllers/JointPositionController
+    joint: rr_f
+    pid : {p: 10, i: 1.0, d: 4}
+
+  # rl_Controllers --------------------------------------------------------------
+  #Controller 2
+
+  rl_h_controller:
+    type: effort_controllers/JointPositionController
+    joint: rl_h
+    pid : {p: 10, i: 1.0, d: 4}
+
+  rl_l_1_controller:
+    type: effort_controllers/JointPositionController
+    joint: rl_l_1
+    pid : {p: 10, i: 1.0, d: 4}
+
+  rl_lg_controller:
+    type: effort_controllers/JointPositionController
+    joint: rl_lg
+    pid : {p: 10, i: 1.0, d: 4}
+  
+  rl_l_2_controller:
+    type: effort_controllers/JointPositionController
+    joint: rl_l_2
+    pid : {p: 10, i: 1.0, d: 4}
+  
+  rl_a_controller:
+    type: effort_controllers/JointPositionController
+    joint: rl_a
+    pid : {p: 10, i: 1.0, d: 4}
+
+  rl_f_controller:
+    type: effort_controllers/JointPositionController
+    joint: rl_f
+    pid : {p: 10, i: 1.0, d: 4}
+    
+
+  # fr_Controllers --------------------------------------------------------------
+  #Controller 3
+
+  fr_h_controller:
+    type: effort_controllers/JointPositionController
+    joint: fr_h
+    pid : {p: 10, i: 1.0, d: 4}
+
+  fr_l_1_controller:
+    type: effort_controllers/JointPositionController
+    joint: fr_l_1
+    pid : {p: 10, i: 1.0, d: 4}
+
+  fr_lg_controller:
+    type: effort_controllers/JointPositionController
+    joint: fr_lg
+    pid : {p: 10, i: 1.0, d: 4}
+  
+  fr_l_2_controller:
+    type: effort_controllers/JointPositionController
+    joint: fr_l_2
+    pid : {p: 10, i: 1.0, d: 4}
+  
+  fr_a_controller:
+    type: effort_controllers/JointPositionController
+    joint: fr_a
+    pid : {p: 10, i: 1.0, d: 4}
+
+  fr_f_controller:
+    type: effort_controllers/JointPositionController
+    joint: fr_f
+    pid : {p: 10, i: 1.0, d: 4}
+
+
+  # fl_Controllers --------------------------------------------------------------
+  #Controller 4
+
+  fl_h_controller:
+    type: effort_controllers/JointPositionController
+    joint: fl_h
+    pid : {p: 10, i: 1.0, d: 4}
+
+  fl_l_1_controller:
+    type: effort_controllers/JointPositionController
+    joint: fl_l_1
+    pid : {p: 10, i: 1.0, d: 4}
+
+  fl_lg_controller:
+    type: effort_controllers/JointPositionController
+    joint: fl_lg
+    pid : {p: 10, i: 1.0, d: 4}
+  
+  fl_l_2_controller:
+    type: effort_controllers/JointPositionController
+    joint: fl_l_2
+    pid : {p: 10, i: 1.0, d: 4}
+  
+  fl_a_controller:
+    type: effort_controllers/JointPositionController
+    joint: fl_a
+    pid : {p: 10, i: 1.0, d: 4}
+
+  fl_f_controller:
+    type: effort_controllers/JointPositionController
+    joint: fl_f
+    pid : {p: 10, i: 1.0, d: 4}
+
+
+
+  # rr_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints: 
+  #     - rr_h
+  #     - rr_l_1
+  #     - rr_lg
+  #     - rr_l_2
+  #     - rr_a
+  #     - rr_f
+
+  # rl_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints: 
+  #     - rl_h
+  #     - rl_l_1
+  #     - rl_lg
+  #     - rl_l_2
+  #     - rl_a
+  #     - rl_f
+
+  # fr_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints: 
+  #     - fr_h
+  #     - fr_l_1
+  #     - fr_lg
+  #     - fr_l_2
+  #     - fr_a
+  #     - fr_f
+    
+  # fl_controller:
+  #   type: position_controllers/JointTrajectoryController
+  #   joints: 
+  #     - fl_h
+  #     - fl_l_1
+  #     - fl_lg
+  #     - fl_l_2
+  #     - fl_a
+  #     - fl_f
+
+
+
+  # /gazebo_ros_control:
+  #   pid_gains:
+  #     rr_h: {p: 20 , i: 0.5 , d : 1 }
+  #     rr_l_1: {p: 20 , i: 0.5 , d : 1 }
+  #     rr_lg: {p: 20 , i: 0.5 , d : 1 }
+  #     rr_l_2: {p: 20 , i: 0.5 , d : 1 }
+  #     rr_a: {p: 20 , i: 0.5 , d : 1 }
+  #     rr_f: {p: 20 , i: 0.5 , d : 1 }
+
+  #     rl_h: {p: 20 , i: 0.5 , d : 1 }
+  #     rl_l_1: {p: 20 , i: 0.5 , d : 1 }
+  #     rl_lg: {p: 20 , i: 0.5 , d : 1 }
+  #     rl_l_2: {p: 20 , i: 0.5 , d : 1 }
+  #     rl_a: {p: 20 , i: 0.5 , d : 1 }
+  #     rl_f: {p: 20 , i: 0.5 , d : 1 }
+      
+  #     fr_h: {p: 20 , i: 0.5 , d : 1 }
+  #     fr_l_1: {p: 20 , i: 0.5 , d : 1 }
+  #     fr_lg: {p: 20 , i: 0.5 , d : 1 }
+  #     fr_l_2: {p: 20 , i: 0.5 , d : 1 }
+  #     fr_a: {p: 20 , i: 0.5 , d : 1 }
+  #     fr_f: {p: 20 , i: 0.5 , d : 1 }
+
+  #     fl_h: {p: 20 , i: 0.5 , d : 1 }
+  #     fl_l_1: {p: 20 , i: 0.5 , d : 1 }
+  #     fl_lg: {p: 20 , i: 0.5 , d : 1 }
+  #     fl_l_2: {p: 20 , i: 0.5 , d : 1 }
+  #     fl_a: {p: 20 , i: 0.5 , d : 1 }
+  #     fl_f: {p: 20 , i: 0.5 , d : 1 }
+
+
+
+
+
+
+      # rr_controller: {p: 20 , i: 0.5 , d : 1 }
+      # rl_controller: {p: 20 , i: 0.5 , d : 1 }
+      # fr_controller: {p: 20 , i: 0.5 , d : 1 }
+      # fl_controller: {p: 20 , i: 0.5 , d : 1 }

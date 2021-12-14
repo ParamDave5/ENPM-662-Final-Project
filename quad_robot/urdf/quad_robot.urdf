@@ -1,0 +1,1695 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="quad_robot">
+  <link name = "dummy_link" />
+  <joint 
+    name = "dummy_link_to_base_link" 
+    type = "fixed">
+    <parent link ="dummy_link"/>
+    <child link="platform" />
+  </joint>
+  <link
+    name="platform">
+    <inertial>
+      <origin
+        xyz="-0.000404521463038099 1.55559248288251E-07 -0.030004010830296"
+        rpy="0 0 0" />
+      <mass
+        value="6.3842623426896" />
+      <inertia
+        ixx="0.0225857260546824"
+        ixy="6.94010385554055E-07"
+        ixz="-4.33144242592857E-07"
+        iyy="0.15371694988574"
+        iyz="2.00727743475506E-08"
+        izz="0.172487203358036" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/platform.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/platform.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="rr_holder">
+    <inertial>
+      <origin
+        xyz="-0.238494199485119 -0.0815020141321888 -0.0756887494122581"
+        rpy="0 0 0" />
+      <mass
+        value="0.00515488935718906" />
+      <inertia
+        ixx="3.05807746521344E-06"
+        ixy="-3.22157921560896E-07"
+        ixz="-5.33264112161002E-12"
+        iyy="1.40675274264012E-06"
+        iyz="1.00350684957577E-12"
+        izz="2.12527288341703E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_holder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_holder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rr_h"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="platform" />
+    <child
+      link="rr_holder" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rr_limb_1">
+    <inertial>
+      <origin
+        xyz="-0.248134188948376 -0.0796879420349015 -0.148924288686999"
+        rpy="0 0 0" />
+      <mass
+        value="0.21296976073602" />
+      <inertia
+        ixx="0.000360488158606502"
+        ixy="6.32513329522903E-06"
+        ixz="-5.94227475856886E-05"
+        iyy="0.00039290967701394"
+        iyz="1.11822890207033E-05"
+        izz="6.98952843512656E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_limb_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_limb_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rr_l_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rr_holder" />
+    <child
+      link="rr_limb_1" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rr_leg">
+    <inertial>
+      <origin
+        xyz="-0.242181571909094 -0.0504910633303371 -0.297519759504035"
+        rpy="0 0 0" />
+      <mass
+        value="0.121622617658033" />
+      <inertia
+        ixx="0.000594974818556612"
+        ixy="5.15721880625251E-06"
+        ixz="5.78616485724682E-05"
+        iyy="0.000621409460116157"
+        iyz="-1.08881115660724E-05"
+        izz="3.07808764841848E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rr_lg"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rr_limb_1" />
+    <child
+      link="rr_leg" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rr_limb_2">
+    <inertial>
+      <origin
+        xyz="-0.236456510749618 -0.0818854703892081 -0.447076797449636"
+        rpy="0 0 0" />
+      <mass
+        value="0.21296976073602" />
+      <inertia
+        ixx="0.000372044506595302"
+        ixy="4.15043709747706E-06"
+        ixz="6.95322325328733E-06"
+        iyy="0.000393318915603597"
+        iyz="-1.30847116977759E-06"
+        izz="5.79296977728092E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_limb_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_limb_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rr_l_2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rr_leg" />
+    <child
+      link="rr_limb_2" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rr_ankle">
+    <inertial>
+      <origin
+        xyz="-0.235348473725713 -0.0820939829664886 -0.521273251123116"
+        rpy="0 0 0" />
+      <mass
+        value="0.00515488935718909" />
+      <inertia
+        ixx="3.05807746521347E-06"
+        ixy="-3.22157921560815E-07"
+        ixz="-5.33264111715663E-12"
+        iyy="1.4067527426401E-06"
+        iyz="1.00350687053264E-12"
+        izz="2.12527288341703E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_ankle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_ankle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rr_a"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rr_limb_2" />
+    <child
+      link="rr_ankle" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rr_foot">
+    <inertial>
+      <origin
+        xyz="-0.23031925599362 -0.0818990173256983 -0.541949434470829"
+        rpy="0 0 0" />
+      <mass
+        value="0.118752898458627" />
+      <inertia
+        ixx="9.54012922298925E-05"
+        ixy="-1.84130352891303E-06"
+        ixz="7.49104668898364E-09"
+        iyy="0.000142315843287418"
+        iyz="2.91535649487141E-10"
+        izz="0.000235735578259086" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rr_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rr_f"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rr_ankle" />
+    <child
+      link="rr_foot" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rl_holder">
+    <inertial>
+      <origin
+        xyz="-0.238494162584761 0.0814998220732433 -0.0756887494122585"
+        rpy="0 0 0" />
+      <mass
+        value="0.00515488935718906" />
+      <inertia
+        ixx="3.07166739379566E-06"
+        ixy="-2.84885336968667E-07"
+        ixz="-5.35376527780618E-12"
+        iyy="1.39316281405791E-06"
+        iyz="8.83903092806172E-13"
+        izz="2.12527288341704E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_holder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_holder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rl_h"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="platform" />
+    <child
+      link="rl_holder" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rl_limb_1">
+    <inertial>
+      <origin
+        xyz="-0.248172338875066 0.0830976825551536 -0.148924288686999"
+        rpy="0 0 0" />
+      <mass
+        value="0.21296976073602" />
+      <inertia
+        ixx="0.000360221338814089"
+        ixy="5.59333671341162E-06"
+        ixz="-5.96581385260299E-05"
+        iyy="0.000393176496806354"
+        iyz="9.84951907374344E-06"
+        izz="6.98952843512656E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_limb_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_limb_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rl_l_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rl_holder" />
+    <child
+      link="rl_limb_1" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rl_leg">
+    <inertial>
+      <origin
+        xyz="-0.242874685937131 0.112420479938591 -0.29751979335549"
+        rpy="0 0 0" />
+      <mass
+        value="0.121622602465425" />
+      <inertia
+        ixx="0.000594756948498601"
+        ixy="4.5605738995501E-06"
+        ixz="5.80908387093824E-05"
+        iyy="0.000621626804231193"
+        iyz="-9.5903449118726E-06"
+        izz="3.07809933348623E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rl_lg"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rl_limb_1" />
+    <child
+      link="rl_leg" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rl_limb_2">
+    <inertial>
+      <origin
+        xyz="-0.236448401966236 0.081162068353018 -0.447076797449636"
+        rpy="0 0 0" />
+      <mass
+        value="0.21296976073602" />
+      <inertia
+        ixx="0.000371869424314331"
+        ixy="3.6702455285071E-06"
+        ixz="6.98076701096459E-06"
+        iyy="0.000393493997884568"
+        iyz="-1.15252000018338E-06"
+        izz="5.79296977728093E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_limb_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_limb_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rl_l_2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rl_leg" />
+    <child
+      link="rl_limb_2" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rl_ankle">
+    <inertial>
+      <origin
+        xyz="-0.235335975682534 0.0809784075119089 -0.521273251123117"
+        rpy="0 0 0" />
+      <mass
+        value="0.0051548893571891" />
+      <inertia
+        ixx="3.07166739379569E-06"
+        ixy="-2.84885336968587E-07"
+        ixz="-5.35376527267342E-12"
+        iyy="1.39316281405789E-06"
+        iyz="8.83903117374331E-13"
+        izz="2.12527288341704E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_ankle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_ankle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rl_a"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rl_limb_2" />
+    <child
+      link="rl_ankle" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="rl_foot">
+    <inertial>
+      <origin
+        xyz="-0.230312381371031 0.0812858856319446 -0.541949434469658"
+        rpy="0 0 0" />
+      <mass
+        value="0.118752898459681" />
+      <inertia
+        ixx="9.55071946950773E-05"
+        ixy="-2.88921269314964E-06"
+        ixz="7.4826459185112E-09"
+        iyy="0.000142209940820079"
+        iyz="4.59123379443084E-10"
+        izz="0.000235735578255168" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/rl_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rl_f"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="rl_ankle" />
+    <child
+      link="rl_foot" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fr_holder">
+    <inertial>
+      <origin
+        xyz="0.203932342616495 -0.0815026596614342 -0.0756887494122586"
+        rpy="0 0 0" />
+      <mass
+        value="0.00515488935718896" />
+      <inertia
+        ixx="3.00520628905572E-06"
+        ixy="-4.33932996506204E-07"
+        ixz="-5.24964970682803E-12"
+        iyy="1.45962391879779E-06"
+        iyz="1.37304963369888E-12"
+        izz="2.125272883417E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_holder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_holder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_h"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="platform" />
+    <child
+      link="fr_holder" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fr_limb_1">
+    <inertial>
+      <origin
+        xyz="0.194442379441527 -0.079020553023187 -0.148924288686999"
+        rpy="0 0 0" />
+      <mass
+        value="0.21296976073602" />
+      <inertia
+        ixx="0.000361526212350619"
+        ixy="8.51968509978573E-06"
+        ixz="-5.84979567138807E-05"
+        iyy="0.000391871623269825"
+        iyz="1.53001823085856E-05"
+        izz="6.98952843512657E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_limb_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_limb_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_l_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="fr_holder" />
+    <child
+      link="fr_limb_1" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fr_leg">
+    <inertial>
+      <origin
+        xyz="0.202417185237618 -0.0503100458690355 -0.297519649158803"
+        rpy="0 0 0" />
+      <mass
+        value="0.121622666627107" />
+      <inertia
+        ixx="0.000595822205237659"
+        ixy="6.94643414377528E-06"
+        ixz="5.69611988815209E-05"
+        iyy="0.000620563769201878"
+        iyz="-1.48978616718951E-05"
+        izz="3.07805003908677E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_lg"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="fr_limb_1" />
+    <child
+      link="fr_leg" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fr_limb_2">
+    <inertial>
+      <origin
+        xyz="0.205938318985629 -0.0820273242117023 -0.447076797449636"
+        rpy="0 0 0" />
+      <mass
+        value="0.21296976073602" />
+      <inertia
+        ixx="0.000372725658528021"
+        ixy="5.59046196285525E-06"
+        ixz="6.84501086568127E-06"
+        iyy="0.000392637763670877"
+        iyz="-1.79031747489102E-06"
+        izz="5.79296977728094E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_limb_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_limb_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_l_2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="fr_leg" />
+    <child
+      link="fr_limb_2" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fr_ankle">
+    <inertial>
+      <origin
+        xyz="0.207029111729068 -0.0823126218318973 -0.521273251123117"
+        rpy="0 0 0" />
+      <mass
+        value="0.00515488935718909" />
+      <inertia
+        ixx="3.0052062890558E-06"
+        ixy="-4.33932996506133E-07"
+        ixz="-5.24964970222134E-12"
+        iyy="1.45962391879777E-06"
+        iyz="1.37304964079705E-12"
+        izz="2.12527288341703E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_ankle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_ankle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_a"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="fr_limb_2" />
+    <child
+      link="fr_ankle" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fr_foot">
+    <inertial>
+      <origin
+        xyz="0.212059678623147 -0.0824689525968437 -0.541949434474741"
+        rpy="0 0 0" />
+      <mass
+        value="0.11875289846178" />
+      <inertia
+        ixx="9.53733174678496E-05"
+        ixy="1.44124688472087E-06"
+        ixz="7.49313297943832E-09"
+        iyy="0.000142343818059201"
+        iyz="-2.31724904842528E-10"
+        izz="0.000235735578270093" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fr_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_f"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="fr_ankle" />
+    <child
+      link="fr_foot" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fl_holder">
+    <inertial>
+      <origin
+        xyz="0.203932629848036 0.0815007318597151 -0.075688749412258"
+        rpy="0 0 0" />
+      <mass
+        value="0.00515488935718911" />
+      <inertia
+        ixx="3.11076550435148E-06"
+        ixy="-1.18341181943071E-07"
+        ixz="-5.41407965390396E-12"
+        iyy="1.35406470350209E-06"
+        iyz="3.63082356285333E-13"
+        izz="2.12527288341704E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_holder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_holder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_h"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="platform" />
+    <child
+      link="fl_holder" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fl_limb_1">
+    <inertial>
+      <origin
+        xyz="0.194145421285326 0.0821570876899501 -0.148924288686999"
+        rpy="0 0 0" />
+      <mass
+        value="0.21296976073602" />
+      <inertia
+        ixx="0.000359453700509066"
+        ixy="2.32346839859645E-06"
+        ixz="-6.03302344060178E-05"
+        iyy="0.000393944135111378"
+        iyz="4.04590347017151E-06"
+        izz="6.98952843512656E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_limb_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_limb_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_l_1"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="fl_holder" />
+    <child
+      link="fl_limb_1" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fl_leg">
+    <inertial>
+      <origin
+        xyz="0.196588371962614 0.1118542993698 -0.297519928854198"
+        rpy="0 0 0" />
+      <mass
+        value="0.121622540664617" />
+      <inertia
+        ixx="0.000594129740435856"
+        ixy="1.89453609696883E-06"
+        ixz="5.87451952077487E-05"
+        iyy="0.000622251874070563"
+        iyz="-3.93916703222372E-06"
+        izz="3.0781469885403E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_lg"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="fl_limb_1" />
+    <child
+      link="fl_leg" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fl_limb_2">
+    <inertial>
+      <origin
+        xyz="0.206001437569886 0.0813619921975911 -0.447076797449636"
+        rpy="0 0 0" />
+      <mass
+        value="0.21296976073602" />
+      <inertia
+        ixx="0.000371365714060348"
+        ixy="1.52461758294224E-06"
+        ixz="7.0594108450374E-06"
+        iyy="0.000393997708138551"
+        iyz="-4.73422573567157E-07"
+        izz="5.79296977728094E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_limb_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_limb_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_l_2"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="fl_leg" />
+    <child
+      link="fl_limb_2" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fl_ankle">
+    <inertial>
+      <origin
+        xyz="0.207126396211129 0.0812865495258289 -0.521273251123117"
+        rpy="0 0 0" />
+      <mass
+        value="0.00515488935718912" />
+      <inertia
+        ixx="3.1107655043515E-06"
+        ixy="-1.18341181942986E-07"
+        ixz="-5.41407965356073E-12"
+        iyy="1.35406470350209E-06"
+        iyz="3.63082378348247E-13"
+        izz="2.12527288341704E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_ankle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_ankle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_a"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="fl_limb_2" />
+    <child
+      link="fl_ankle" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+  <link
+    name="fl_foot">
+    <inertial>
+      <origin
+        xyz="0.212096865337528 0.0820774220020982 -0.541949434465365"
+        rpy="0 0 0" />
+      <mass
+        value="0.118752898465877" />
+      <inertia
+        ixx="9.64972726830019E-05"
+        ixy="-7.32165667997801E-06"
+        ixz="7.40340907600652E-09"
+        iyy="0.00014121986282517"
+        iyz="1.17913480696302E-09"
+        izz="0.00023573557824011" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_foot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robot/meshes/fl_foot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_f"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="fl_ankle" />
+    <child
+      link="fl_foot" />
+    <axis
+      xyz="0 0 1" />
+    <dynamics damping="5" friction="0.1"/>
+    <limit
+      lower="-.0802851455917" upper="0.802851455917" effort="100" velocity="52" />
+  </joint>
+
+  <!--RR Controllers ..................................................................... -->
+  <!--rr_Holder_link Controller-->
+  <transmission name="rr_holder_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rr_h">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rr_holder_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!--rr_limb_1 Controller-->
+  <transmission name="rr_limb_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rr_l_1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="rr_limb_1_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+  </transmission>
+
+<!--rr_leg_link Controller-->
+  <transmission name="rr_leg_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rr_lg">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rr_leg_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--rr_limb_2 Controller-->
+  <transmission name="rr_limb_2_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rr_l_2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rr_limb_2_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--rr_ankle Controller-->
+  <transmission name="rr_ankle_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rr_a">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rr_ankle_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--rr_foot Controller-->
+  <transmission name="rr_foot_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="rr_f">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="rr_foot_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+  </transmission> 
+
+
+<!--RL Controllers ..................................................................... --> 
+<!--rl_Holder_link Controller-->
+  <transmission name="rl_holder_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rl_h">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rl_holder_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!--rl_limb_1 Controller-->
+  <transmission name="rl_limb_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rl_l_1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="rl_limb_1_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+  </transmission>
+
+<!--rl_leg_link Controller-->
+  <transmission name="rl_leg_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rl_lg">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rl_leg_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--rl_limb_2 Controller-->
+  <transmission name="rl_limb_2_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rl_l_2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rl_limb_2_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--rl_ankle Controller-->
+  <transmission name="rl_ankle_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="rl_a">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="rl_ankle_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--rl_foot Controller-->
+  <transmission name="rl_foot_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="rl_f">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="rl_foot_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+  </transmission> 
+
+<!--FR Controllers ..................................................................... -->
+  <!--fr_Holder_link Controller-->
+  <transmission name="fr_holder_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr_h">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr_holder_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!--fr_limb_1 Controller-->
+  <transmission name="fr_limb_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr_l_1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="fr_limb_1_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+  </transmission>
+
+<!--fr_leg_link Controller-->
+  <transmission name="fr_leg_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr_lg">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr_leg_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--fr_limb_2 Controller-->
+  <transmission name="fr_limb_2_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr_l_2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr_limb_2_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--fr_ankle Controller-->
+  <transmission name="fr_ankle_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fr_a">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr_ankle_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--fr_foot Controller-->
+  <transmission name="fr_foot_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="fr_f">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="fr_foot_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+  </transmission> 
+
+
+<!--FL Controllers ..................................................................... --> 
+<!--fl_Holder_link Controller-->
+  <transmission name="fl_holder_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fl_h">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr_holder_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!--fl_limb_1 Controller-->
+  <transmission name="fl_limb_1_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fl_l_1">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="fl_limb_1_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+  </transmission>
+
+<!--fl_leg_link Controller-->
+  <transmission name="fl_leg_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fl_lg">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fr_leg_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--fl_limb_2 Controller-->
+  <transmission name="fl_limb_2_tran">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fl_l_2">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fl_limb_2_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--fl_ankle Controller-->
+  <transmission name="fl_ankle_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="fl_a">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="fl_ankle_motor">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+<!--fl_foot Controller-->
+  <transmission name="fl_foot_tran">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="fl_f">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="fl_foot_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+  </transmission> 
+</robot>
+
+<!--EffortJointInterface-->
+<!--PositionJointInterface-->
